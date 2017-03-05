@@ -21,16 +21,10 @@ class VendingMachineTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testsCoinOfPennySizeAndMinimumWeightIsIdentifiedAsPenny() {
+        // The diameer of a penny is 19.05mm and can weigh between 2.5gm and 3.11gm
+        let coin = CoinDetector(diameter: 19.05, weight: 2.5)
+        XCTAssertTrue(coin.name() == "Penny")
+        
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

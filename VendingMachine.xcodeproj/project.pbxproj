@@ -14,6 +14,7 @@
 		AAB4D4131E6CB9D100F2B82D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB4D4111E6CB9D100F2B82D /* LaunchScreen.storyboard */; };
 		AAB4D41E1E6CB9D100F2B82D /* VendingMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D41D1E6CB9D100F2B82D /* VendingMachineTests.swift */; };
 		AAB4D4291E6CB9D100F2B82D /* VendingMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4281E6CB9D100F2B82D /* VendingMachineUITests.swift */; };
+		AAB4D43A1E6CBE4F00F2B82D /* CoinDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4391E6CBE4F00F2B82D /* CoinDetector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		AAB4D4241E6CB9D100F2B82D /* VendingMachineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB4D4281E6CB9D100F2B82D /* VendingMachineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineUITests.swift; sourceTree = "<group>"; };
 		AAB4D42A1E6CB9D100F2B82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAB4D4391E6CBE4F00F2B82D /* CoinDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +99,10 @@
 		AAB4D4071E6CB9D100F2B82D /* VendingMachine */ = {
 			isa = PBXGroup;
 			children = (
-				AAB4D4081E6CB9D100F2B82D /* AppDelegate.swift */,
-				AAB4D40A1E6CB9D100F2B82D /* ViewController.swift */,
-				AAB4D40C1E6CB9D100F2B82D /* Main.storyboard */,
+				AAB4D4371E6CBE1C00F2B82D /* Model */,
+				AAB4D4361E6CBE0100F2B82D /* Controller */,
+				AAB4D4381E6CBE3300F2B82D /* View */,
 				AAB4D40F1E6CB9D100F2B82D /* Assets.xcassets */,
-				AAB4D4111E6CB9D100F2B82D /* LaunchScreen.storyboard */,
 				AAB4D4141E6CB9D100F2B82D /* Info.plist */,
 			);
 			path = VendingMachine;
@@ -123,6 +124,32 @@
 				AAB4D42A1E6CB9D100F2B82D /* Info.plist */,
 			);
 			path = VendingMachineUITests;
+			sourceTree = "<group>";
+		};
+		AAB4D4361E6CBE0100F2B82D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AAB4D40A1E6CB9D100F2B82D /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		AAB4D4371E6CBE1C00F2B82D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AAB4D4081E6CB9D100F2B82D /* AppDelegate.swift */,
+				AAB4D4391E6CBE4F00F2B82D /* CoinDetector.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AAB4D4381E6CBE3300F2B82D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AAB4D40C1E6CB9D100F2B82D /* Main.storyboard */,
+				AAB4D4111E6CB9D100F2B82D /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +291,7 @@
 			files = (
 				AAB4D40B1E6CB9D100F2B82D /* ViewController.swift in Sources */,
 				AAB4D4091E6CB9D100F2B82D /* AppDelegate.swift in Sources */,
+				AAB4D43A1E6CBE4F00F2B82D /* CoinDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

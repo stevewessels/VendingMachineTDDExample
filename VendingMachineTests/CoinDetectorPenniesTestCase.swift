@@ -30,4 +30,12 @@ class CoinDetectorPenniesTestCase: XCTestCase {
         XCTAssertEqual(coin.name, "Penny")
     }
     
+    func testDeterminePenniesAreInValidCoins() {
+        let coin = Coin()
+        let detector = CoinDetector(diameter: 1, weight: 1)
+        coin.name = "Penny"
+        XCTAssertFalse(detector.isValid(coin: coin))
+    }
+
+    
 }

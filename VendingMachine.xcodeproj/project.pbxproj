@@ -19,6 +19,7 @@
 		AAB4D43E1E6CC5A600F2B82D /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D43D1E6CC5A600F2B82D /* Coin.swift */; };
 		AAB4D4401E6CCC0F00F2B82D /* CoinDetectorPenniesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D43F1E6CCC0F00F2B82D /* CoinDetectorPenniesTestCase.swift */; };
 		AAB4D4421E6CCCCF00F2B82D /* CoinDetectorNickelsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4411E6CCCCF00F2B82D /* CoinDetectorNickelsTestCase.swift */; };
+		AAB4D4441E6CCF5300F2B82D /* CoinDetectorDimesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4431E6CCF5300F2B82D /* CoinDetectorDimesTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		AAB4D43D1E6CC5A600F2B82D /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		AAB4D43F1E6CCC0F00F2B82D /* CoinDetectorPenniesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetectorPenniesTestCase.swift; sourceTree = "<group>"; };
 		AAB4D4411E6CCCCF00F2B82D /* CoinDetectorNickelsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetectorNickelsTestCase.swift; sourceTree = "<group>"; };
+		AAB4D4431E6CCF5300F2B82D /* CoinDetectorDimesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetectorDimesTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				AAB4D43B1E6CC1F100F2B82D /* CoinDetectorTestCase.swift */,
 				AAB4D43F1E6CCC0F00F2B82D /* CoinDetectorPenniesTestCase.swift */,
 				AAB4D4411E6CCCCF00F2B82D /* CoinDetectorNickelsTestCase.swift */,
+				AAB4D4431E6CCF5300F2B82D /* CoinDetectorDimesTestCase.swift */,
 				AAB4D41F1E6CB9D100F2B82D /* Info.plist */,
 			);
 			path = VendingMachineTests;
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB4D4421E6CCCCF00F2B82D /* CoinDetectorNickelsTestCase.swift in Sources */,
+				AAB4D4441E6CCF5300F2B82D /* CoinDetectorDimesTestCase.swift in Sources */,
 				AAB4D43C1E6CC1F100F2B82D /* CoinDetectorTestCase.swift in Sources */,
 				AAB4D41E1E6CB9D100F2B82D /* VendingMachineTests.swift in Sources */,
 				AAB4D4401E6CCC0F00F2B82D /* CoinDetectorPenniesTestCase.swift in Sources */,

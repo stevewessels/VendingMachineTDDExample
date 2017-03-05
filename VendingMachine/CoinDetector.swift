@@ -24,6 +24,10 @@ class CoinDetector {
             if weight == 5.0 {
                 self.name = "Nickel"
             }
+        } else if diameter == 17.91 {
+            if weight == 2.27 {
+                self.name = "Dime"
+            }
         }
     }
     

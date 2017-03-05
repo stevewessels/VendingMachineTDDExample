@@ -11,7 +11,7 @@ import Foundation
 class CoinDetector {
     var diameter: Double
     var weight: Double
-    var name: String = "Unknown Coin"
+    var name: String = "Unknown"
     
     init(diameter: Double, weight: Double) {
         self.diameter = diameter
@@ -21,6 +21,12 @@ class CoinDetector {
                 self.name = "Penny"
             }
         }
+    }
+    
+    func coin() -> Coin {
+        let coin = Coin()
+        coin.name = self.name
+        return coin
     }
     
 }

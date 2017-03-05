@@ -11,30 +11,41 @@ import XCTest
 
 class CoinDetectorTestCase: XCTestCase {
     
-    func testsCoinOfPennySizeAndMinimumWeightIsIdentifiedAsPenny() {
+    func testCoinDetectorAnswerACoinObject() {
+        let detector = CoinDetector(diameter: 1, weight: 1)
+        let coin = detector.coin()
+        XCTAssertTrue(type(of: coin) == Coin.self)
+    }
+    
+    func testCoinOfPennySizeAndMinimumWeightIsIdentifiedAsPenny() {
         // The diameer of a penny is 19.05mm and can weigh between 2.5gm and 3.11gm
-        let coin = CoinDetector(diameter: 19.05, weight: 2.5)
+        let detector = CoinDetector(diameter: 19.05, weight: 2.5)
+        let coin = detector.coin()
         XCTAssertEqual(coin.name, "Penny")
     }
     
     func testCoinOfPennySizeAndMaximumWeightIsIdentifiedAsPenny() {
-        let coin = CoinDetector(diameter: 19.05, weight: 3.11)
+        let detector = CoinDetector(diameter: 19.05, weight: 3.11)
+        let coin = detector.coin()
         XCTAssertEqual(coin.name, "Penny")
     }
     
     func testCoinOfPennySizeAndInBetweenValidWeightIsIdentifiedAsPenny() {
-        let coin = CoinDetector(diameter: 19.05, weight: 3.0)
+        let detector = CoinDetector(diameter: 19.05, weight: 3.0)
+        let coin = detector.coin()
         XCTAssertEqual(coin.name, "Penny")
     }
     
     func testCoinOfSmallSizeIsUnknown() {
-        let coin = CoinDetector(diameter: 1.0, weight: 3)
-        XCTAssertEqual(coin.name, "Unknown Coin")
+        let detector = CoinDetector(diameter: 1.0, weight: 3)
+        let coin = detector.coin()
+        XCTAssertEqual(coin.name, "Unknown")
     }
     
     func testCoinOfPennySizeWithIncorrectWeightIsUnknown() {
-        let coin = CoinDetector(diameter: 19.05, weight: 1.0)
-        XCTAssertEqual(coin.name, "Unknown Coin")
+        let detector = CoinDetector(diameter: 19.05, weight: 1.0)
+        let coin = detector.coin()
+        XCTAssertEqual(coin.name, "Unknown")
     }
 
 }

@@ -16,6 +16,7 @@
 		AAB4D4291E6CB9D100F2B82D /* VendingMachineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4281E6CB9D100F2B82D /* VendingMachineUITests.swift */; };
 		AAB4D43A1E6CBE4F00F2B82D /* CoinDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4391E6CBE4F00F2B82D /* CoinDetector.swift */; };
 		AAB4D43C1E6CC1F100F2B82D /* CoinDetectorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D43B1E6CC1F100F2B82D /* CoinDetectorTestCase.swift */; };
+		AAB4D43E1E6CC5A600F2B82D /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D43D1E6CC5A600F2B82D /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AAB4D42A1E6CB9D100F2B82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB4D4391E6CBE4F00F2B82D /* CoinDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetector.swift; sourceTree = "<group>"; };
 		AAB4D43B1E6CC1F100F2B82D /* CoinDetectorTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetectorTestCase.swift; sourceTree = "<group>"; };
+		AAB4D43D1E6CC5A600F2B82D /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				AAB4D4081E6CB9D100F2B82D /* AppDelegate.swift */,
 				AAB4D4391E6CBE4F00F2B82D /* CoinDetector.swift */,
+				AAB4D43D1E6CC5A600F2B82D /* Coin.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				AAB4D40B1E6CB9D100F2B82D /* ViewController.swift in Sources */,
 				AAB4D4091E6CB9D100F2B82D /* AppDelegate.swift in Sources */,
+				AAB4D43E1E6CC5A600F2B82D /* Coin.swift in Sources */,
 				AAB4D43A1E6CBE4F00F2B82D /* CoinDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -45,6 +45,7 @@ class CoinDetector {
         switch coin.name! {
         case "Nickel": return true
         case "Dime": return  true
+        case "Quarter": return true
         default: return false
         }
     }

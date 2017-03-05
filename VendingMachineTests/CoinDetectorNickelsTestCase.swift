@@ -1,5 +1,5 @@
 //
-//  CoinDetectorNicklesTestCase.swift
+//  CoinDetectorNickelsTestCase.swift
 //  VendingMachine
 //
 //  Created by Stephan B Wessels on 3/5/17.

@@ -17,13 +17,18 @@ class CoinDetectorTestCase: XCTestCase {
         XCTAssertEqual(coin.name, "Penny")
     }
     
+    func testCoinOfPennySizeAndMaximumWeightIsIdentifiedAsPenny() {
+        let coin = CoinDetector(diameter: 19.05, weight: 3.11)
+        XCTAssertEqual(coin.name, "Penny")
+    }
+    
     func testCoinOfSmallSizeIsUnknown() {
         let coin = CoinDetector(diameter: 1.0, weight: 3)
         XCTAssertEqual(coin.name, "Unknown Coin")
     }
     
     func testCoinOfPennySizeWithIncorrectWeightIsUnknown() {
-        let coin = CoinDetector(diameter: 20, weight: 1.0)
+        let coin = CoinDetector(diameter: 19.05, weight: 1.0)
         XCTAssertEqual(coin.name, "Unknown Coin")
     }
 

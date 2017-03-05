@@ -42,7 +42,10 @@ class CoinDetector {
     }
     
     func isValid(coin: Coin) -> Bool {
-        return false
+        switch coin.name! {
+        case "Nickel": return true
+        default: return false
+        }
     }
     
 }

@@ -37,5 +37,4 @@ class CoinDetectorPenniesTestCase: XCTestCase {
         XCTAssertFalse(detector.isValid(coin: coin))
     }
 
-    
 }

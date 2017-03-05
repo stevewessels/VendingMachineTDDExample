@@ -11,18 +11,16 @@ import Foundation
 class CoinDetector {
     var diameter: Double
     var weight: Double
+    var name: String = "Unknown Coin"
     
     init(diameter: Double, weight: Double) {
         self.diameter = diameter
         self.weight = weight
-    }
-    
-    func name() -> String {
         if diameter == 19.05 {
             if weight >= 2.5 && weight <= 3.11 {
-                return "Penny"
+                self.name = "Penny"
             }
         }
-        return "Unknown coin"
     }
+    
 }

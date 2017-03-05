@@ -28,6 +28,10 @@ class CoinDetector {
             if weight == 2.27 {
                 self.name = "Dime"
             }
+        } else if diameter == 24.26 {
+            if weight == 5.67 {
+                self.name = "Quarter"
+            }
         }
     }
     

@@ -18,4 +18,11 @@ class CoinDetectorDimesTestCase: XCTestCase {
         XCTAssertEqual(coin.name, "Dime")
     }
     
+    func testDetermineDimesAreValidCoins() {
+        let coin = Coin()
+        let detector = CoinDetector(diameter: 1, weight: 1)
+        coin.name = "Dime"
+        XCTAssertTrue(detector.isValid(coin: coin))
+    }
+    
 }

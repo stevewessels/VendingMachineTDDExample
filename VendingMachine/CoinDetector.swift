@@ -41,4 +41,8 @@ class CoinDetector {
         return coin
     }
     
+    func isValid(coin: Coin) -> Bool {
+        return false
+    }
+    
 }

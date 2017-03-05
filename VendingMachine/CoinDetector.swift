@@ -20,6 +20,10 @@ class CoinDetector {
             if weight >= 2.5 && weight <= 3.11 {
                 self.name = "Penny"
             }
+        } else if diameter == 21.21 {
+            if weight == 5.0 {
+                self.name = "Nickel"
+            }
         }
     }
     

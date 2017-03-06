@@ -9,6 +9,13 @@
 import Foundation
 
 class Item {
+    
     var name = ""
     var price = 0
+    
+    init(name: String, price: Int) {
+        self.name = name
+        self.price = price
+    }
+    
 }

@@ -11,8 +11,13 @@ import XCTest
 
 class VendingMachineTests: XCTestCase {
     
+    var machine: VendingMachine!
     var waitExpectation: XCTestExpectation?
-    let machine = VendingMachine()
+    
+    override func setUp() {
+        super.setUp()
+        machine = VendingMachine()
+    }
 
     func testTheMachineWakesUpWithNoCoinsInTheReturnTray() {
         XCTAssertTrue(machine.returnTray.isEmpty)
@@ -167,7 +172,12 @@ class VendingMachineTests: XCTestCase {
         machine.selectFrom(column: 3)   // There is none
         XCTAssertEqual(machine.display, "SOLD OUT")
         waitForReset(duration: 4)
-
+    }
+    
+    func testCannotMakeChangeShowsCorrectMessage() {
+        // Simplest thing is to remove the change we have and see the waiting for coins message changed...
+        machine.removeCoinsFromChange() // This is a bit of a cheat since we don't re-use coins for change.
+        XCTAssertEqual(machine.display, "EXACT CHANGE ONLY")
     }
     
     private func waitForRemainingBalance(duration: TimeInterval) {

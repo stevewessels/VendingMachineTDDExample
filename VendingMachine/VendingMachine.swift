@@ -10,15 +10,21 @@ import Foundation
 
 class VendingMachine {
     var returnTray: [Coin] = []
-    var display = "INSERT COIN"
+    var display = ""
     let coinDetector = CoinDetector()
     var runningTotal: Int = 0
     var dispenser: [Item] = []
     var inventory: [Int:[Item]] = [:]
     var transactionCoins: [Coin]?
+    var availableCoinsForChange: [Coin] = []
     
     init() {
         transactionCoins = []
+        let nickel = Coin()
+        nickel.name = "Nickel"
+        nickel.value = 5
+        availableCoinsForChange.append(nickel)
+        setDisplayReady()
     }
     
     func dropInCoin(diameter: Double, weight: Double) {
@@ -71,6 +77,11 @@ class VendingMachine {
         insertCoinDisplayDelayed()
     }
     
+    func removeCoinsFromChange() {
+        availableCoinsForChange.removeAll()
+        setDisplayReady()
+    }
+    
     private func dispense(item: Item) {
         dispenser.append(item)
         runningTotal -= item.price
@@ -88,7 +99,15 @@ class VendingMachine {
     private func insertCoinDisplayDelayed() {
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
+            self.setDisplayReady()
+        }
+    }
+    
+    private func setDisplayReady() {
+        if !self.availableCoinsForChange.isEmpty {
             self.display = "INSERT COIN"
+        } else {
+            self.display = "EXACT CHANGE ONLY"
         }
     }
     

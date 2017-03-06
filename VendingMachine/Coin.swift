@@ -10,4 +10,5 @@ import Foundation
 
 class Coin {
     var name: String?
+    var value: Int?
 }

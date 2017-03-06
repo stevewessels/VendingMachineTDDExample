@@ -38,6 +38,13 @@ class CoinDetector {
     func coin() -> Coin {
         let coin = Coin()
         coin.name = self.name
+        switch coin.name! {
+        case "Penny": coin.value = 1
+        case "Nickel": coin.value = 5
+        case "Dime": coin.value = 10
+        case "Quarter": coin.value = 25
+        default: coin.value = 0
+        }
         return coin
     }
     

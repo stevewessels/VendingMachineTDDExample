@@ -37,5 +37,12 @@ class CoinDetectorTestCase: XCTestCase {
         coin.name = "Half Dollar"
         XCTAssertFalse(detector.isValid(coin: coin))
     }
+    
+    func testValueOfUnknownCoint() {
+        let detector = CoinDetector(diameter: 1, weight: 1)
+        let coin = detector.coin()
+        XCTAssertEqual(coin.value, 0)
+    }
+
 
 }

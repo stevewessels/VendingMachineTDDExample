@@ -25,4 +25,10 @@ class CoinDetectorNickelsTestCase: XCTestCase {
         XCTAssertTrue(detector.isValid(coin: coin))
     }
     
+    func testValueOfProperNickel() {
+        let detector = CoinDetector(diameter: 21.21, weight: 5.0)
+        let coin = detector.coin()
+        XCTAssertEqual(coin.value, 5)
+    }
+    
 }

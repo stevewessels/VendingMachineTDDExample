@@ -25,4 +25,10 @@ class CoinDetectorQuartersTestCase: XCTestCase {
         XCTAssertTrue(detector.isValid(coin: coin))
     }
     
+    func testValueOfProperQuarter() {
+        let detector = CoinDetector(diameter: 24.26, weight: 5.67)
+        let coin = detector.coin()
+        XCTAssertEqual(coin.value, 25)
+    }
+    
 }

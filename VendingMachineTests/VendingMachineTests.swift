@@ -11,14 +11,14 @@ import XCTest
 
 class VendingMachineTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testTheMachineWakesUpWithNoCoinsInTheReturnTray() {
+        let machine = VendingMachine()
+        XCTAssertTrue(machine.returnTray.isEmpty)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testMachineWakesUpWithInsertCoinOnDisplay() {
+        let machine = VendingMachine()
+        XCTAssertEqual(machine.display, "INSERT COIN")
     }
     
 }

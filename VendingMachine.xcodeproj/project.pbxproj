@@ -21,6 +21,7 @@
 		AAB4D4421E6CCCCF00F2B82D /* CoinDetectorNickelsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4411E6CCCCF00F2B82D /* CoinDetectorNickelsTestCase.swift */; };
 		AAB4D4441E6CCF5300F2B82D /* CoinDetectorDimesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4431E6CCF5300F2B82D /* CoinDetectorDimesTestCase.swift */; };
 		AAB4D4461E6CD09400F2B82D /* CoinDetectorQuartersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4451E6CD09400F2B82D /* CoinDetectorQuartersTestCase.swift */; };
+		AAB4D4481E6CEE1200F2B82D /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4D4471E6CEE1200F2B82D /* VendingMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		AAB4D4411E6CCCCF00F2B82D /* CoinDetectorNickelsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetectorNickelsTestCase.swift; sourceTree = "<group>"; };
 		AAB4D4431E6CCF5300F2B82D /* CoinDetectorDimesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetectorDimesTestCase.swift; sourceTree = "<group>"; };
 		AAB4D4451E6CD09400F2B82D /* CoinDetectorQuartersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDetectorQuartersTestCase.swift; sourceTree = "<group>"; };
+		AAB4D4471E6CEE1200F2B82D /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				AAB4D4081E6CB9D100F2B82D /* AppDelegate.swift */,
 				AAB4D4391E6CBE4F00F2B82D /* CoinDetector.swift */,
 				AAB4D43D1E6CC5A600F2B82D /* Coin.swift */,
+				AAB4D4471E6CEE1200F2B82D /* VendingMachine.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAB4D4481E6CEE1200F2B82D /* VendingMachine.swift in Sources */,
 				AAB4D40B1E6CB9D100F2B82D /* ViewController.swift in Sources */,
 				AAB4D4091E6CB9D100F2B82D /* AppDelegate.swift in Sources */,
 				AAB4D43E1E6CC5A600F2B82D /* Coin.swift in Sources */,

@@ -13,6 +13,7 @@ class VendingMachine {
     var display = "INSERT COIN"
     let coinDetector = CoinDetector()
     var runningTotal: Int = 0
+    var dispenser: [Item] = []
     
     func dropInCoin(diameter: Double, weight: Double) {
         let coin = coinDetector.processCoinWith(diameter: diameter, weight: weight)

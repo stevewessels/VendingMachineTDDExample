@@ -21,6 +21,11 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(machine.display, "INSERT COIN")
     }
     
+    func testMachineWakesUpWithNothingInTheDispenser() {
+        let machine = VendingMachine()
+        XCTAssertTrue(machine.dispenser.isEmpty)
+    }
+    
     func testDroppingPennyIntoMachineEndsUpInReturnTray() {
         let machine = VendingMachine()
         machine.dropInCoin(diameter: 19.05, weight: 2.5)
@@ -29,6 +34,7 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(contents.count, 1)
         let coin = contents.first
         XCTAssertEqual(coin?.name, "Penny")
+        XCTAssertTrue(machine.dispenser.isEmpty)
     }
     
     func testDroppingNickelIntoMachineUpdatesDisplay() {
@@ -36,6 +42,7 @@ class VendingMachineTests: XCTestCase {
         machine.dropInCoin(diameter: 21.21, weight: 5.0)
         XCTAssertEqual(machine.display, "0.05")
         XCTAssertTrue(machine.returnTray.isEmpty)
+        XCTAssertTrue(machine.dispenser.isEmpty)
     }
     
     func testDropNickelAndAPennyIntoMachineUpdatesDisplayAndReturnTray() {
@@ -47,6 +54,7 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(contents.count, 1)
         let coin = contents.first
         XCTAssertEqual(coin?.name, "Penny")
+        XCTAssertTrue(machine.dispenser.isEmpty)
     }
     
     func testDropMultipleGoodCoinsIntoMachineAndCheckDisplayAndReturnTray() {
@@ -55,6 +63,7 @@ class VendingMachineTests: XCTestCase {
         machine.dropInCoin(diameter: 21.21, weight: 5.0)
         XCTAssertEqual(machine.display, "0.10")
         XCTAssertTrue(machine.returnTray.isEmpty)
+        XCTAssertTrue(machine.dispenser.isEmpty)
     }
     
     func testDropMultipleCoinsOfEachKindAndCheckDisplayAndReturnTray() {
@@ -68,6 +77,7 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(contents.count, 1)
         let coin = contents.first
         XCTAssertEqual(coin?.name, "Penny")
+        XCTAssertTrue(machine.dispenser.isEmpty)
     }
     
 }

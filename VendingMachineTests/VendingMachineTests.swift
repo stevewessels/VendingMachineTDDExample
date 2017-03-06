@@ -31,4 +31,11 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(coin?.name, "Penny")
     }
     
+    func testDroppingNickelIntoMachineUpdatesDisplay() {
+        let machine = VendingMachine()
+        machine.dropInCoin(diameter: 21.21, weight: 5.0)
+        XCTAssertEqual(machine.display, "0.05")
+        XCTAssertTrue(machine.returnTray.isEmpty)
+    }
+    
 }

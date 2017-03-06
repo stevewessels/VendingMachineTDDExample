@@ -10,13 +10,17 @@ import Foundation
 
 class VendingMachine {
     var returnTray: [Coin] = []
-    let display = "INSERT COIN"
+    var display = "INSERT COIN"
     let coinDetector = CoinDetector()
+    var runningTotal: Int = 0
     
     func dropInCoin(diameter: Double, weight: Double) {
         let coin = coinDetector.processCoinWith(diameter: diameter, weight: weight)
         if !coinDetector.isValid(coin: coin) {
             returnTray.append(coin)
+        } else {
+            runningTotal += coin.value!
+            display = "0.05"
         }
     }
 }

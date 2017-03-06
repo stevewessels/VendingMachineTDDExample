@@ -45,6 +45,8 @@ class VendingMachine {
                 dispense(item: item!)
             } else {
                 // not enough cash to purchase
+                self.display = String(format: "PRICE %.2f", Double(price!) / 100.0)
+                insertCoinDisplayDelayed()
             }
         } else {
             // none left to buy
@@ -54,7 +56,22 @@ class VendingMachine {
     private func dispense(item: Item) {
         dispenser.append(item)
         runningTotal -= item.price
+        if runningTotal > 0 {
+            // Simplest solution for now is to hard code a nickel
+            let change = Coin()
+            change.name = "Nickel"
+            change.value = 5
+            returnTray.append(change)
+        }
         display = "THANK YOU"
+        insertCoinDisplayDelayed()
+    }
+    
+    private func insertCoinDisplayDelayed() {
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.display = "INSERT COIN"
+        }
     }
     
 }

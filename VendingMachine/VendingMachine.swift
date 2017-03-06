@@ -36,5 +36,25 @@ class VendingMachine {
             inventory[slot]?.append(item)
         }
     }
-        
+    
+    func selectFrom(column: Int) {
+        if (inventory[column]?.count)! > 0 {
+            let price = inventory[column]?[0].price
+            if price! <= runningTotal {
+                let item = inventory[column]?.removeFirst()
+                dispense(item: item!)
+            } else {
+                // not enough cash to purchase
+            }
+        } else {
+            // none left to buy
+        }
+    }
+    
+    private func dispense(item: Item) {
+        dispenser.append(item)
+        runningTotal -= item.price
+        display = "THANK YOU"
+    }
+    
 }

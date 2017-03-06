@@ -104,6 +104,19 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(machine.inventory[3]?[0].name, "candy")
     }
     
+    func testPurchaseAColaExactChange() {
+        let machine = VendingMachine()
+        machine.preload()
+        machine.dropInCoin(diameter: 24.26, weight: 5.67)
+        machine.dropInCoin(diameter: 24.26, weight: 5.67)
+        machine.dropInCoin(diameter: 24.26, weight: 5.67)
+        machine.dropInCoin(diameter: 24.26, weight: 5.67)
+        machine.selectFrom(column: 1)
+        XCTAssertEqual(machine.display, "THANK YOU")
+        XCTAssertTrue(machine.returnTray.isEmpty)
+        let item = machine.dispenser[0]
+        XCTAssertEqual(item.name, "cola")
+    }
     
 }
 

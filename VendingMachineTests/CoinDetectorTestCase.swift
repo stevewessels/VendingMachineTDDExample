@@ -12,26 +12,26 @@ import XCTest
 class CoinDetectorTestCase: XCTestCase {
     
     func testCoinDetectorAnswerACoinObject() {
-        let detector = CoinDetector(diameter: 1, weight: 1)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 1.0, weight: 3)
         XCTAssertTrue(type(of: coin) == Coin.self)
     }
     
     func testCoinOfSmallSizeIsUnknown() {
-        let detector = CoinDetector(diameter: 1.0, weight: 3)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 1.0, weight: 3)
         XCTAssertEqual(coin.name, "Unknown")
     }
     
     func testCoinWithIncorrectWeightIsUnknown() {
-        let detector = CoinDetector(diameter: 19.05, weight: 1.0)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 19.05, weight: 1.0)
         XCTAssertEqual(coin.name, "Unknown")
     }
 
     func testDetermineUnknownCoinsAreInValidCoins() {
         let coin = Coin()
-        let detector = CoinDetector(diameter: 1, weight: 1)
+        let detector = CoinDetector()
         coin.name = "Unknown"
         XCTAssertFalse(detector.isValid(coin: coin))
         coin.name = "Half Dollar"
@@ -39,8 +39,8 @@ class CoinDetectorTestCase: XCTestCase {
     }
     
     func testValueOfUnknownCoint() {
-        let detector = CoinDetector(diameter: 1, weight: 1)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 1, weight: 1)
         XCTAssertEqual(coin.value, 0)
     }
 

@@ -13,32 +13,32 @@ class CoinDetectorPenniesTestCase: XCTestCase {
     
     func testCoinOfPennySizeAndMinimumWeightIsIdentifiedAsPenny() {
         // The diameer of a penny is 19.05mm and can weigh between 2.5gm and 3.11gm
-        let detector = CoinDetector(diameter: 19.05, weight: 2.5)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 19.05, weight: 2.5)
         XCTAssertEqual(coin.name, "Penny")
     }
     
     func testCoinOfPennySizeAndMaximumWeightIsIdentifiedAsPenny() {
-        let detector = CoinDetector(diameter: 19.05, weight: 3.11)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 19.05, weight: 3.11)
         XCTAssertEqual(coin.name, "Penny")
     }
     
     func testCoinOfPennySizeAndInBetweenValidWeightIsIdentifiedAsPenny() {
-        let detector = CoinDetector(diameter: 19.05, weight: 3.0)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 19.05, weight: 3.0)
         XCTAssertEqual(coin.name, "Penny")
     }
     
     func testValueOfProperPenny() {
-        let detector = CoinDetector(diameter: 19.05, weight: 3.0)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 19.05, weight: 3.0)
         XCTAssertEqual(coin.value, 1)
     }
     
     func testDeterminePenniesAreInValidCoins() {
         let coin = Coin()
-        let detector = CoinDetector(diameter: 1, weight: 1)
+        let detector = CoinDetector()
         coin.name = "Penny"
         XCTAssertFalse(detector.isValid(coin: coin))
     }

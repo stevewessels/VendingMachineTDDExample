@@ -13,21 +13,21 @@ class CoinDetectorQuartersTestCase: XCTestCase {
     
     func testCoinOfQuarterSizeAndWeightIsIdentifiedAsQuarter() {
         // The diameter of a quarter is 24.26mm and weighs 5.67gm
-        let detector = CoinDetector(diameter: 24.26, weight: 5.67)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 24.26, weight: 5.67)
         XCTAssertEqual(coin.name, "Quarter")
     }
 
     func testDetermineQuartersAreValidCoins() {
         let coin = Coin()
-        let detector = CoinDetector(diameter: 1, weight: 1)
+        let detector = CoinDetector()
         coin.name = "Quarter"
         XCTAssertTrue(detector.isValid(coin: coin))
     }
     
     func testValueOfProperQuarter() {
-        let detector = CoinDetector(diameter: 24.26, weight: 5.67)
-        let coin = detector.coin()
+        let detector = CoinDetector()
+        let coin = detector.processCoinWith(diameter: 24.26, weight: 5.67)
         XCTAssertEqual(coin.value, 25)
     }
     

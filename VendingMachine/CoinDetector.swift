@@ -9,11 +9,11 @@
 import Foundation
 
 class CoinDetector {
-    var diameter: Double
-    var weight: Double
+    var diameter: Double?
+    var weight: Double?
     var name: String = "Unknown"
     
-    init(diameter: Double, weight: Double) {
+    func processCoinWith(diameter: Double, weight: Double) -> Coin {
         self.diameter = diameter
         self.weight = weight
         if diameter == 19.05 {
@@ -33,9 +33,10 @@ class CoinDetector {
                 self.name = "Quarter"
             }
         }
+        return self.coin()
     }
     
-    func coin() -> Coin {
+    private func coin() -> Coin {
         let coin = Coin()
         coin.name = self.name
         switch coin.name! {

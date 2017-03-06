@@ -38,6 +38,7 @@ class VendingMachine {
     
     func add(slot: Int, item: Item, qty: Int) {
         inventory[slot] = [Item]()
+        if qty < 1 { return }
         for _ in 1...qty {
             inventory[slot]?.append(item)
         }
@@ -56,6 +57,12 @@ class VendingMachine {
             }
         } else {
             // none left to buy
+            self.display = "SOLD OUT"
+            if runningTotal > 0 {
+                runningBalanceDisplayedDelayed()
+            } else {
+                insertCoinDisplayDelayed()
+            }
         }
     }
     
@@ -82,6 +89,13 @@ class VendingMachine {
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.display = "INSERT COIN"
+        }
+    }
+    
+    private func runningBalanceDisplayedDelayed() {
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.display = self.runningTotalAsDisplayString()
         }
     }
     

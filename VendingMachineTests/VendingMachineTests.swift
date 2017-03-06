@@ -151,19 +151,53 @@ class VendingMachineTests: XCTestCase {
         waitForReset(duration: 4)
     }
     
-    private func waitForReset(duration: TimeInterval) {
+    func testCandyIsSoldOutAndWeNotifyCustomerAndThenShowRunningBalance() {
+        machine.preloadWithNoCandy()
+        // Put in 75 cents, more than enough for candy
+        machine.dropInCoin(diameter: 24.26, weight: 5.67)
+        machine.dropInCoin(diameter: 24.26, weight: 5.67)
+        machine.dropInCoin(diameter: 24.26, weight: 5.67)
+        machine.selectFrom(column: 3)   // There is none
+        XCTAssertEqual(machine.display, "SOLD OUT")
+        waitForRemainingBalance(duration: 4)
+    }
+    
+    func testCandyIsSoldOutCustomerPutInNoCoinsYetChooseCandyAndWeDisplaySoldOutThenInsertCoins() {
+        machine.preloadWithNoCandy()
+        machine.selectFrom(column: 3)   // There is none
+        XCTAssertEqual(machine.display, "SOLD OUT")
+        waitForReset(duration: 4)
+
+    }
+    
+    private func waitForRemainingBalance(duration: TimeInterval) {
         waitExpectation = expectation(description: "waitForReset")
         Timer.scheduledTimer(timeInterval: duration,
                              target: self,
-                             selector: #selector(VendingMachineTests.onTimer),
+                             selector: #selector(VendingMachineTests.onRemainingBalanceTimer),
                              userInfo: nil,
                              repeats: false)
         waitForExpectations(timeout: duration + 3, handler: nil)
     }
     
-    func onTimer() {
+    private func waitForReset(duration: TimeInterval) {
+        waitExpectation = expectation(description: "waitForReset")
+        Timer.scheduledTimer(timeInterval: duration,
+                             target: self,
+                             selector: #selector(VendingMachineTests.onInsertCoinTimer),
+                             userInfo: nil,
+                             repeats: false)
+        waitForExpectations(timeout: duration + 3, handler: nil)
+    }
+    
+    func onInsertCoinTimer() {
         waitExpectation?.fulfill()
         XCTAssertEqual(machine.display, "INSERT COIN")
+    }
+    
+    func onRemainingBalanceTimer() {
+        waitExpectation?.fulfill()
+        XCTAssertEqual(machine.display, "0.75")
     }
     
 }
@@ -174,4 +208,11 @@ extension VendingMachine {
         self.add(slot: 2, item: Item(name: "chips", price: 50), qty: 8)
         self.add(slot: 3, item: Item(name: "candy", price: 65), qty: 6)
     }
+    
+    func preloadWithNoCandy() {
+        self.add(slot: 1, item: Item(name: "cola", price: 100), qty: 12)
+        self.add(slot: 2, item: Item(name: "chips", price: 50), qty: 8)
+        self.add(slot: 3, item: Item(name: "candy", price: 65), qty: 0)
+    }
+
 }

@@ -80,7 +80,7 @@ class VendingMachineTests: XCTestCase {
         XCTAssertTrue(machine.dispenser.isEmpty)
     }
     
-    func testAddInventoryOfItemsToMachine() {
+    func testAddInventoryOfItemsToMachineManually() {
         let machine = VendingMachine()
         machine.add(slot: 1, item: Item(name: "cola", price: 100), qty: 12)
         machine.add(slot: 2, item: Item(name: "chips", price: 50), qty: 8)
@@ -93,4 +93,24 @@ class VendingMachineTests: XCTestCase {
         XCTAssertEqual(machine.inventory[3]?[0].name, "candy")
     }
     
+    func testPreloadedMachineContents() {
+        let machine = VendingMachine()
+        machine.preload()
+        XCTAssertEqual(machine.inventory[1]?.count, 12)
+        XCTAssertEqual(machine.inventory[1]?[0].name, "cola")
+        XCTAssertEqual(machine.inventory[2]?.count, 8)
+        XCTAssertEqual(machine.inventory[2]?[0].name, "chips")
+        XCTAssertEqual(machine.inventory[3]?.count, 6)
+        XCTAssertEqual(machine.inventory[3]?[0].name, "candy")
+    }
+    
+    
+}
+
+extension VendingMachine {
+    func preload() {
+        self.add(slot: 1, item: Item(name: "cola", price: 100), qty: 12)
+        self.add(slot: 2, item: Item(name: "chips", price: 50), qty: 8)
+        self.add(slot: 3, item: Item(name: "candy", price: 65), qty: 6)
+    }
 }

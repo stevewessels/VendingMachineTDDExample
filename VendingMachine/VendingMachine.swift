@@ -36,5 +36,5 @@ class VendingMachine {
             inventory[slot]?.append(item)
         }
     }
-    
+        
 }

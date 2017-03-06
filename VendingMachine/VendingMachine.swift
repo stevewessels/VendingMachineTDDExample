@@ -20,7 +20,12 @@ class VendingMachine {
             returnTray.append(coin)
         } else {
             runningTotal += coin.value!
-            display = "0.05"
+            display = runningTotalAsDisplayString()
         }
     }
+    
+    private func runningTotalAsDisplayString() -> String {
+        return String(format: "%.2f", Double(runningTotal) / 100.0)
+    }
+    
 }

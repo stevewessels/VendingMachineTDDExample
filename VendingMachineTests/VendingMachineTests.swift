@@ -140,7 +140,15 @@ class VendingMachineTests: XCTestCase {
         let item = machine.dispenser[0]
         XCTAssertEqual(item.name, "cola")
         waitForReset(duration: 4)
-
+    }
+    
+    func testCustomerPutsInCoinsThenAsksForMoneyBack() {
+        machine.preload()
+        machine.dropInCoin(diameter: 24.26, weight: 5.67)
+        machine.returnButtonPressed()
+        XCTAssertTrue(machine.returnTray.count == 1)
+        XCTAssertTrue(machine.returnTray.first?.name == "Quarter")
+        waitForReset(duration: 4)
     }
     
     private func waitForReset(duration: TimeInterval) {

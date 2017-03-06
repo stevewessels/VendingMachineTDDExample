@@ -15,6 +15,11 @@ class VendingMachine {
     var runningTotal: Int = 0
     var dispenser: [Item] = []
     var inventory: [Int:[Item]] = [:]
+    var transactionCoins: [Coin]?
+    
+    init() {
+        transactionCoins = []
+    }
     
     func dropInCoin(diameter: Double, weight: Double) {
         let coin = coinDetector.processCoinWith(diameter: diameter, weight: weight)
@@ -22,6 +27,7 @@ class VendingMachine {
             returnTray.append(coin)
         } else {
             runningTotal += coin.value!
+            transactionCoins?.append(coin)
             display = runningTotalAsDisplayString()
         }
     }
@@ -51,6 +57,11 @@ class VendingMachine {
         } else {
             // none left to buy
         }
+    }
+    
+    func returnButtonPressed() {
+        returnTray = transactionCoins!
+        insertCoinDisplayDelayed()
     }
     
     private func dispense(item: Item) {
